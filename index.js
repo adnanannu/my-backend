@@ -8,7 +8,7 @@ import courseRoute from "./routes/course.route.js";
 import mediaRoute from "./routes/media.route.js";
 import purchaseRoute from "./routes/purchaseCourse.route.js";
 import courseProgressRoute from "./routes/courseProgress.route.js";
-import zoomRoutes from "./routes/zoomRoutes.js";
+import zoomRoutes from "./routes/zoom.js";
 
 dotenv.config({});
 
@@ -23,10 +23,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    credentials: true,
+    origin: 'https://tutorzz.netlify.app', // ✅ This must match your Netlify domain
+  credentials: true
   })
 );
+
 
 // APIs
 app.use("/api/v1/media", mediaRoute);
